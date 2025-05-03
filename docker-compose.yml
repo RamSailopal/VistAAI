@@ -1,0 +1,60 @@
+services:
+ ollama:
+   image: docker.io/ollama/ollama:latest 
+   expose: 
+      - 11434
+   hostname: ollama
+   container_name: ollama
+   networks:
+      - artiintel
+  
+ mcp-server:
+   image: docker.io/ubuntu:latest
+   hostname: mcp-server
+   container_name: mcp-server
+   networks:
+      - artiintel
+   volumes:
+      - "$PWD/mcp:/home/mcp"
+   entrypoint: /home/mcp/provision.sh
+
+ WebAI:
+   image: docker.io/ubuntu:latest
+   hostname: webai
+   container_name: webai
+   ports:
+      - 8001:8001
+   networks:
+      - artiintel
+   volumes:
+      - "$PWD/WebAI:/home/WebAI"
+   entrypoint: /home/WebAI/provision.sh
+
+ ollama-sidecar:
+   image: docker
+   stdin_open: true
+   tty: true
+   hostname: sidecar
+   container_name: sidecar
+   volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+   command: docker exec -it ollama ollama pull llama3.2
+   depends_on:
+      - ollama
+
+ fileman:
+   image: docker.io/vistadataproject/nodevista999
+   hostname: fileman
+   ports:
+      - 9330:9430 
+      - 32:22 
+      - 9100:9000 
+      - 9331:8001
+      - 8083:8083
+      - 8082:8082
+   networks:
+      - artiintel
+
+
+networks:
+    artiintel:

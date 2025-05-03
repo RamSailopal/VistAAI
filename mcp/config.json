@@ -1,0 +1,16 @@
+{
+  "globalShortcut": "Ctrl+Space",
+  "mcpServers": {
+   "about-vista": {
+        "command": "uv",
+        "args": [
+                "run",
+                "--with",
+                "mcp[cli]",
+                "mcp",
+                "run",
+                "vista.py"
+        ]
+   }
+  }
+}

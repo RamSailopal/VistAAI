@@ -63,6 +63,9 @@ The Python code **mcp/vista.py** provides the context about VistA to the AI mode
 # Further Information:
 
 [Ollama docker container](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
+
 [mcp-host](https://github.com/mark3labs/mcphost)
+
 [VistA](https://worldvista.org/)
+
 [fmQL](https://github.com/borochris/FMQL)

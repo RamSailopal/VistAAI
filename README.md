@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/ramsailopal-vistaai-badge.png)](https://mseep.ai/app/ramsailopal-vistaai)
+
 # VistA Self Hosted AI
 
 An MCP server that integrates with a self hosted Ollama container and returns information related to VistA patients.
